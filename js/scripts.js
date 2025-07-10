@@ -23,10 +23,32 @@ const ul = document.getElementsByTagName('ul')[0]
 ul.className = 'list'
 
 // 5: Create a new list item and add it to the <ul>
+const li = document.createElement('li')
+const textContent = 'Play Video Games'
+ul.insertAdjacentHTML('afterbegin', `<li><input> ${textContent}</li>`)
 
 // 6: Change all <input> elements from text fields to checkboxes
+const inputElements = document.querySelectorAll('input')
+inputElements.forEach((input) => {
+  if (input.type === 'text') {
+    input.type = 'checkbox'
+  }
+})
 
 // 7: Create a <button> element, and set its text to 'Delete'
 // Add the <button> inside the '.extra' <div>
+const deleteButton = document.createElement('button')
+deleteButton.innerText = 'Delete'
+
+const extraDiv = document.getElementsByClassName('extra')[0]
+const paragraph = extraDiv.querySelector('p')
+paragraph.remove()
+
+extraDiv.appendChild(deleteButton)
 
 // 8: Remove the '.extra' <div> element from the DOM when a user clicks the 'Delete' button
+const btnDelete = document.querySelector('button')
+
+btnDelete.addEventListener('click', (evt) => {
+  extraDiv.remove()
+})
