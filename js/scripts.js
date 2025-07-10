@@ -41,14 +41,10 @@ const deleteButton = document.createElement('button')
 deleteButton.innerText = 'Delete'
 
 const extraDiv = document.getElementsByClassName('extra')[0]
-const paragraph = extraDiv.querySelector('p')
-paragraph.remove()
 
 extraDiv.appendChild(deleteButton)
 
 // 8: Remove the '.extra' <div> element from the DOM when a user clicks the 'Delete' button
-const btnDelete = document.querySelector('button')
-
-btnDelete.addEventListener('click', (evt) => {
+deleteButton.addEventListener('click', () => {
   extraDiv.remove()
 })
